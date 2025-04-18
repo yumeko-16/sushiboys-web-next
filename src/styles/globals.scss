@@ -1,0 +1,57 @@
+:root {
+  /* Color */
+  --base: #ffff83;
+  --white: #fff;
+  --black: #171717;
+  --accent: #83c0f9;
+
+  /* Font size */
+  --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem);
+  --heading1: clamp(2rem, 1.3rem + 3vw, 4rem);
+  --heading2: calc(var(--body) * 1.5);
+  --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem);
+
+  /* Space */
+  --space-xs: clamp(1.25rem, 1rem + 0.9vw, 1.875rem);
+  --space-md: calc(var(--space-xs) * 2);
+  --space-lg: calc(var(--space-xs) * 3);
+  --space-xl: calc(var(--space-xs) * 4);
+}
+
+/* Base Styles */
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: var(--body);
+  color: var(--black);
+  background-color: var(--base);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(body, h1, h2, h3, p, figure, dl) {
+  margin: 0;
+}
+
+:where(ul, ol) {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+:where(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+:where(img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

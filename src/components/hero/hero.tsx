@@ -1,4 +1,5 @@
 import Logo from '@/components/logo/logo';
+import styles from './hero.module.scss';
 
 type Props = {
   heading?: string;
