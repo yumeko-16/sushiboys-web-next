@@ -1,6 +1,7 @@
 import Container from '@/components/container/container';
 import Hero from '@/components/hero/hero';
 import PostBody from '@/components/postBody/postBody';
+import Contact from '@/components/contact/contact';
 
 export default function About() {
   return (
@@ -21,6 +22,8 @@ export default function About() {
           アヒルの形をしたゴムボートのようなものを客席に投げるLIVEに定評がある。
         </p>
       </PostBody>
+
+      <Contact />
     </Container>
   );
 }
