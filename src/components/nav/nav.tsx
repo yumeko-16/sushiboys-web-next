@@ -4,15 +4,21 @@ import styles from './nav.module.scss';
 export default function Nav() {
   return (
     <nav>
-      <ul>
+      <ul className={styles.list}>
         <li>
-          <Link href="/">Home</Link>
+          <Link className={styles.link} href="/">
+            Home
+          </Link>
         </li>
         <li>
-          <Link href="/about">About</Link>
+          <Link className={styles.link} href="/about">
+            About
+          </Link>
         </li>
         <li>
-          <Link href="/news">News</Link>
+          <Link className={styles.link} href="/news">
+            News
+          </Link>
         </li>
       </ul>
     </nav>
