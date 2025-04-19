@@ -1,0 +1,36 @@
+@use '@/styles/utils';
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.title {
+  z-index: 1;
+}
+
+.fixed {
+  position: absolute;
+  bottom: calc(50% / 4);
+
+  @include utils.smartphone-screen {
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  @include utils.tablet-screen {
+    right: 0;
+    transform: translate(0, 50%);
+  }
+}
+
+.heading {
+  font-size: var(--display);
+  font-weight: 700;
+  color: #fff46c;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
