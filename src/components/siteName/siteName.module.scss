@@ -1,0 +1,18 @@
+.basic {
+  font-size: var(--heading2);
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.box {
+  display: inline-block;
+  padding: 1em 2em;
+  font-size: var(--small-heading2);
+  font-weight: 700;
+  color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background-color: var(--gray-75);
+}
