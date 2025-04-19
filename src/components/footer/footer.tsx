@@ -3,9 +3,11 @@ import styles from './footer.module.scss';
 
 export default function Footer() {
   return (
-    <footer>
-      <SiteName />
-      [ソーシャル]
+    <footer className={styles.wrapper}>
+      <div className={styles.flexContainer}>
+        <SiteName />
+        [ソーシャル]
+      </div>
     </footer>
   );
 }
