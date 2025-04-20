@@ -1,0 +1,34 @@
+@use '@/styles/utils';
+
+.flexContainer {
+  gap: var(--space-md);
+  margin: var(--space-md) 0 var(--space-lg);
+
+  @include utils.side-by-side;
+}
+
+.main {
+  @include utils.tablet-screen {
+    width: 768px;
+  }
+}
+
+.sidebar {
+  @include utils.tablet-screen {
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+    width: 240px;
+  }
+
+  * {
+    text-align: right;
+  }
+
+  :is(div, ul) {
+    place-content: flex-end;
+    place-items: flex-end;
+    width: fit-content;
+    margin-left: auto;
+  }
+}
