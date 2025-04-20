@@ -1,18 +1,20 @@
 .basic {
+  font-family: Oswald, sans-serif;
   font-size: var(--heading2);
-  font-weight: 700;
+  font-weight: 500;
   color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
 }
 
 .box {
   display: inline-block;
   padding: 1em 2em;
+  font-family: Oswald, sans-serif;
   font-size: var(--small-heading2);
-  font-weight: 700;
+  font-weight: 500;
   color: transparent;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   background-color: var(--gray-75);
 }
