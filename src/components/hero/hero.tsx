@@ -5,16 +5,14 @@ type Props = {
   heading?: string;
 };
 
-export default function Hero({ heading }: Props) {
+export default function Hero({ heading = 'Sushiboys' }: Props) {
   return (
     <div className={styles.hero}>
-      <h1 className={styles.title} aria-label="SUSHIBOYS">
-        <Logo />
-      </h1>
+      <Logo />
 
       {heading && (
         <div className={styles.fixed}>
-          <h2 className={styles.heading}>{heading}</h2>
+          <h1 className={styles.heading}>{heading}</h1>
         </div>
       )}
     </div>

@@ -1,0 +1,13 @@
+.logo {
+  z-index: 1;
+}
+
+.blur {
+  filter: blur(8px);
+  transition: filter 0.5s ease-in;
+}
+
+.removeBlur {
+  filter: blur(0);
+  transition: filter 0.5s ease-in;
+}
