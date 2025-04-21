@@ -1,0 +1,7 @@
+.list {
+  display: flex;
+  gap: 0 1em;
+  font-size: var(--icon-size, 1.5rem);
+  color: var(--icon-color, var(--black));
+  list-style: none;
+}
