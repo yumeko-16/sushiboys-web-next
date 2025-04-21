@@ -22,13 +22,17 @@
   }
 
   * {
-    text-align: right;
+    @include utils.tablet-screen {
+      text-align: right;
+    }
   }
 
   :is(div, ul) {
-    place-content: flex-end;
-    place-items: flex-end;
-    width: fit-content;
-    margin-left: auto;
+    @include utils.tablet-screen {
+      place-content: flex-end;
+      place-items: flex-end;
+      width: fit-content;
+      margin-left: auto;
+    }
   }
 }
