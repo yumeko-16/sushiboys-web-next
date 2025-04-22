@@ -1,5 +1,6 @@
-import Container from '@/components/container/container';
+import Meta from '@/components/meta';
 import Hero from '@/components/hero/hero';
+import Container from '@/components/container/container';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
@@ -7,6 +8,8 @@ import Contact from '@/components/contact/contact';
 export default function About() {
   return (
     <>
+      <Meta pageTitle="ABOUT" pageDesc="SUSHIBOYSの生態系。" />
+
       <Hero heading="About" />
 
       <Container>
