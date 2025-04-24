@@ -1,4 +1,4 @@
-import Meta from '@/components/meta';
+import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
 import Container from '@/components/container/container';
 
