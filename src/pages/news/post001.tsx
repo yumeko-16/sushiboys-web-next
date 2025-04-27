@@ -2,7 +2,11 @@ import Image from 'next/image';
 import defaultEyecatch from '@/images/no-image.png';
 import { getPostBySlug } from '@/lib/api';
 import Container from '@/components/container/container';
+import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostHeader from '@/components/postHeader/postHeader';
+import PostBody from '@/components/postBody/postBody';
+import Contact from '@/components/contact/contact';
+import ConvertBody from '@/components/convertBody/convertBody';
 
 const DEFAULT_WIDTH = 600;
 const DEFAULT_HEIGHT = 600;
@@ -39,6 +43,18 @@ export default function Post001({ title, eyecatch, content, publish }: Props) {
             priority
           />
         </figure>
+
+        <TwoColumn>
+          <TwoColumn.Main>
+            <PostBody>
+              <ConvertBody contentHTML={content} />
+            </PostBody>
+          </TwoColumn.Main>
+
+          <TwoColumn.Sidebar>
+            <Contact />
+          </TwoColumn.Sidebar>
+        </TwoColumn>
       </article>
     </Container>
   );
