@@ -9,3 +9,9 @@ export const siteMeta = {
   siteIcon: '/favicon.ico',
   siteAppleIcon: '/apple-icon.png',
 };
+
+export const eyecatchLocal = {
+  url: '/eyecatch.webp',
+  width: 3000,
+  height: 2000,
+};

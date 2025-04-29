@@ -1,4 +1,8 @@
 import Image from 'next/image';
+import fs from 'fs';
+import path from 'path';
+import { getPlaiceholder } from 'plaiceholder';
+import { eyecatchLocal } from '@/lib/constants';
 import defaultEyecatch from '@/images/no-image.png';
 import { getPostBySlug } from '@/lib/api';
 import { extractText } from '@/lib/extractText';
@@ -19,6 +23,7 @@ type Props = {
     url: string;
     width: number;
     height: number;
+    blurDataURL: string;
   };
   content: string;
   publish?: string;
@@ -58,6 +63,8 @@ export default function Post001({
             height={height}
             sizes="(min-width: 1152px) 1152px, 100vw"
             priority
+            placeholder="blur"
+            blurDataURL={eyecatch.blurDataURL}
           />
         </figure>
 
@@ -78,9 +85,14 @@ export default function Post001({
 }
 
 export async function getStaticProps() {
-  const slug = 'post001';
+  const slug = 'post004';
   const post = await getPostBySlug(slug);
   const description = extractText(post.content);
+  const eyecatch = post.eyecatch ?? eyecatchLocal;
+  const imagePath = path.join(process.cwd(), 'public', eyecatch.url);
+  const buffer = fs.readFileSync(imagePath);
+  const { base64 } = await getPlaiceholder(buffer);
+  eyecatch.blurDataURL = base64;
 
   if (!post) {
     return {
@@ -91,7 +103,7 @@ export async function getStaticProps() {
   return {
     props: {
       title: post.title,
-      eyecatch: post.eyecatch,
+      eyecatch: eyecatch,
       content: post.content,
       publish: post.publishDate ?? null,
       description: description,
