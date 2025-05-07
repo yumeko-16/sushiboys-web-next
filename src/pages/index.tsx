@@ -4,9 +4,10 @@ import Container from '@/components/container/container';
 
 export default function Home() {
   return (
-    <>
+    <Container>
       <Meta />
-      <Hero />;
-    </>
+
+      <Hero imageOn />
+    </Container>
   );
 }

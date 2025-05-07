@@ -4,13 +4,13 @@ import Container from '@/components/container/container';
 
 export default function News() {
   return (
-    <>
+    <Container>
       <Meta
         pageTitle="NEWS"
         pageDesc="SUSHIBOYSニュース。ライブ出演、リリース情報、メディア掲載等の最新情報をご覧いただけます。"
       />
 
-      <Hero heading="News" />
-    </>
+      <Hero heading="News" subHeading="大本営発表" />
+    </Container>
   );
 }
