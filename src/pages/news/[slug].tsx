@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
+import type { GetStaticPropsContext } from 'next';
 import { getPlaiceholder } from 'plaiceholder';
 import { eyecatchLocal } from '@/lib/constants';
 import defaultEyecatch from '@/images/no-image.png';
-import { getPostBySlug } from '@/lib/api';
+import { getPostBySlug, getAllSlugs } from '@/lib/api';
 import { extractText } from '@/lib/extractText';
 import Meta from '@/components/meta/meta';
 import Container from '@/components/container/container';
@@ -28,9 +29,10 @@ type Props = {
   content: string;
   publish?: string;
   description: string;
+  slug: string;
 };
 
-export default function Post001({
+export default function Post({
   title,
   eyecatch,
   content,
@@ -84,21 +86,47 @@ export default function Post001({
   );
 }
 
-export async function getStaticProps() {
-  const slug = 'post004';
-  const post = await getPostBySlug(slug);
-  const description = extractText(post.content);
-  const eyecatch = post.eyecatch ?? eyecatchLocal;
-  const imagePath = path.join(process.cwd(), 'public', eyecatch.url);
-  const buffer = fs.readFileSync(imagePath);
-  const { base64 } = await getPlaiceholder(buffer);
-  eyecatch.blurDataURL = base64;
+export async function getStaticPaths() {
+  const allSlugs = await getAllSlugs();
 
+  return {
+    paths: allSlugs.map(({ slug }: { slug: string }) => `/news/${slug}`),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const slug = context.params?.slug as string;
+
+  const post = await getPostBySlug(slug);
   if (!post) {
     return {
       notFound: true,
     };
   }
+
+  const description = extractText(post.content);
+  const eyecatch = post.eyecatch ?? eyecatchLocal;
+
+  let blurDataURL = '';
+  try {
+    if (eyecatch.url.startsWith('http')) {
+      const res = await fetch(eyecatch.url);
+      const arrayBuffer = await res.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      const { base64 } = await getPlaiceholder(buffer);
+      blurDataURL = base64;
+    } else {
+      const imagePath = path.join(process.cwd(), 'public', eyecatch.url);
+      const buffer = fs.readFileSync(imagePath);
+      const { base64 } = await getPlaiceholder(buffer);
+      blurDataURL = base64;
+    }
+  } catch (error) {
+    console.error('Failed to generate blurDataURL:', error);
+  }
+
+  eyecatch.blurDataURL = blurDataURL;
 
   return {
     props: {
