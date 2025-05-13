@@ -7,6 +7,7 @@ import { eyecatchLocal } from '@/lib/constants';
 import defaultEyecatch from '@/images/no-image.png';
 import { getPostBySlug, getAllSlugs } from '@/lib/api';
 import { extractText } from '@/lib/extractText';
+import { prevNextPost } from '@/lib/prev-next-post';
 import Meta from '@/components/meta/meta';
 import Container from '@/components/container/container';
 import TwoColumn from '@/components/twoColumn/twoColumn';
@@ -14,6 +15,7 @@ import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
 import ConvertBody from '@/components/convertBody/convertBody';
+import Pagination from '@/components/pagination/pagination';
 
 const DEFAULT_WIDTH = 600;
 const DEFAULT_HEIGHT = 600;
@@ -30,6 +32,14 @@ type Props = {
   publish?: string;
   description: string;
   slug: string;
+  prevPost: {
+    title: string;
+    slug: string;
+  };
+  nextPost: {
+    title: string;
+    slug: string;
+  };
 };
 
 export default function Post({
@@ -38,6 +48,8 @@ export default function Post({
   content,
   publish,
   description,
+  prevPost,
+  nextPost,
 }: Props) {
   const src = eyecatch?.url ?? defaultEyecatch;
   const width = eyecatch?.width ?? DEFAULT_WIDTH;
@@ -81,6 +93,13 @@ export default function Post({
             <Contact />
           </TwoColumn.Sidebar>
         </TwoColumn>
+
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/news/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/news/${nextPost.slug}`}
+        />
       </article>
     </Container>
   );
@@ -128,6 +147,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   eyecatch.blurDataURL = blurDataURL;
 
+  const allSlugs = await getAllSlugs();
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
+
   return {
     props: {
       title: post.title,
@@ -135,6 +157,8 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       content: post.content,
       publish: post.publishDate ?? null,
       description: description,
+      prevPost: prevPost,
+      nextPost: nextPost,
     },
   };
 }
