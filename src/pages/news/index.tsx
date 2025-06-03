@@ -1,8 +1,25 @@
+import { getAllPosts } from '@/lib/api';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
 import Container from '@/components/container/container';
+import Posts from '@/components/posts/posts';
 
-export default function News() {
+type Post = {
+  title: string;
+  slug: string;
+  eyecatch: {
+    url: string;
+    width: number;
+    height: number;
+    blurDataURL: string;
+  };
+};
+
+type Props = {
+  posts: Post[];
+};
+
+export default function News({ posts }: Props) {
   return (
     <Container>
       <Meta
@@ -11,6 +28,18 @@ export default function News() {
       />
 
       <Hero heading="News" subHeading="大本営発表" />
+
+      <Posts posts={posts} />
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getAllPosts();
+
+  return {
+    props: {
+      posts: posts,
+    },
+  };
 }
