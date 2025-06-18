@@ -1,3 +1,4 @@
+import { getPlaiceholder } from 'plaiceholder';
 import { getAllPosts } from '@/lib/api';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
@@ -36,6 +37,21 @@ export default function News({ posts }: Props) {
 
 export async function getStaticProps() {
   const posts = await getAllPosts();
+
+  for (const post of posts) {
+    if (post.eyecatch?.url) {
+      try {
+        const response = await fetch(post.eyecatch.url);
+        const arrayBuffer = await response.arrayBuffer();
+        const buffer = Buffer.from(arrayBuffer);
+        const { base64 } = await getPlaiceholder(buffer);
+        post.eyecatch.blurDataURL = base64;
+      } catch (err) {
+        console.error('Failed to generate blurDataURL:', err);
+        post.eyecatch.blurDataURL = '';
+      }
+    }
+  }
 
   return {
     props: {

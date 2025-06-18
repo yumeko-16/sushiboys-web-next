@@ -11,12 +11,14 @@
   --heading1: clamp(2rem, 1.3rem + 3vw, 4rem);
   --heading2: calc(var(--body) * 1.5);
   --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem);
+  --small-heading3: calc(var(--small-heading2) * 0.86); /* 12-23px */
 
   /* Space */
   --space-xs: clamp(1.25rem, 1rem + 0.9vw, 1.875rem);
   --space-md: calc(var(--space-xs) * 2);
   --space-lg: calc(var(--space-xs) * 3);
   --space-xl: calc(var(--space-xs) * 4);
+  --space-jump: clamp(1.25rem, 0.35rem + 3.8vw, 3.75rem); /* 20-60px */
 }
 
 /* Base Styles */
