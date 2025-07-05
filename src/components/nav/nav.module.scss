@@ -1,12 +1,77 @@
 @use '@/styles/utils';
 
+.btn {
+  all: unset;
+  position: relative;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  outline: revert;
+  -webkit-tap-highlight-color: transparent;
+
+  .close & {
+    color: var(--black);
+  }
+
+  .open & {
+    color: var(--white);
+  }
+
+  &::before,
+  &::after,
+  & .bar {
+    display: block;
+    grid-area: 1 / 1;
+    width: 32px;
+    height: 1px;
+    content: '';
+    background-color: currentcolor;
+    transition: transform 0.4s;
+  }
+
+  .close &::before {
+    transform: translateY(-8px);
+  }
+
+  .close &::after {
+    transform: translateY(8px);
+  }
+
+  .open &::before {
+    transform: rotate(45deg);
+  }
+
+  .open &::after {
+    transform: rotate(-45deg);
+  }
+
+  .open & .bar {
+    transform: scale(0);
+  }
+}
+
 .list {
-  display: flex;
-  gap: 0 2em;
+  position: fixed;
+  inset: 0 -100% 0 100%;
+  z-index: 100;
+  display: grid;
+  gap: 40px;
+  place-content: center;
   font-family: Oswald, sans-serif;
   font-weight: 500;
+  color: var(--white);
+  text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.12em;
+  background-color: rgb(0 0 0 / 80%);
+  transition: transform 0.4s;
+}
+
+.open .list {
+  transform: translateX(-100%);
 }
 
 .link {
