@@ -1,8 +1,8 @@
 import { getPlaiceholder } from 'plaiceholder';
 import { getAllPosts } from '@/lib/api';
+import Container from '@/components/container/container';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
-import Container from '@/components/container/container';
 import Posts from '@/components/posts/posts';
 
 type Post = {

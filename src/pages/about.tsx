@@ -1,6 +1,6 @@
+import Container from '@/components/container/container';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
-import Container from '@/components/container/container';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
