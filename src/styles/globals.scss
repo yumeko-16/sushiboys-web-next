@@ -6,18 +6,19 @@
   --accent: #83c0f9;
 
   /* Font size */
-  --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
-  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem);
-  --heading1: clamp(2rem, 1.3rem + 3vw, 4rem);
-  --heading2: calc(var(--body) * 1.5);
-  --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem);
+  --body: clamp(1rem, 0.95rem + 0.2vw, 1.125rem); /* 16-18px */
+  --display: clamp(4.5rem, 1.83rem + 11.34vw, 10rem); /* 72-160px */
+  --heading1: clamp(2rem, 1.3rem + 3vw, 4rem); /* 32-64px */
+  --heading2: calc(var(--body) * 1.5); /* 24-27px */
+  --small-heading2: clamp(0.875rem, 4vw - 1rem, 1.6875rem); /* 14-27px */
   --small-heading3: calc(var(--small-heading2) * 0.86); /* 12-23px */
 
   /* Space */
-  --space-xs: clamp(1.25rem, 1rem + 0.9vw, 1.875rem);
-  --space-md: calc(var(--space-xs) * 2);
-  --space-lg: calc(var(--space-xs) * 3);
-  --space-xl: calc(var(--space-xs) * 4);
+  --space-xs: clamp(1.25rem, 1rem + 0.9vw, 1.875rem); /* 20-30px */
+  --space-sm: calc(var(--space-xs) * 1.5); /* 30-45px */
+  --space-md: calc(var(--space-xs) * 2); /* 40-60px */
+  --space-lg: calc(var(--space-xs) * 3); /* 60-90px */
+  --space-xl: calc(var(--space-xs) * 4); /* 80-120px */
   --space-jump: clamp(1.25rem, 0.35rem + 3.8vw, 3.75rem); /* 20-60px */
 }
 
