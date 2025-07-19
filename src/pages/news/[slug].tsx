@@ -10,6 +10,7 @@ import { extractText } from '@/lib/extractText';
 import { prevNextPost } from '@/lib/prev-next-post';
 import Container from '@/components/container/container';
 import Meta from '@/components/meta/meta';
+import Hero from '@/components/hero/hero';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
@@ -64,6 +65,8 @@ export default function Post({
         pageImgW={eyecatch.width}
         pageImgH={eyecatch.height}
       />
+
+      <Hero heading="News" subHeading="大本営発表" />
 
       <article>
         <PostHeader title={title} publish={publish} />
