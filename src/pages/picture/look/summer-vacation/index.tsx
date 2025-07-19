@@ -96,7 +96,7 @@ export default function Picture() {
     <Container>
       <Meta pageTitle="夏休み編" pageDesc="SUSHIBOYS LOOK 2022" />
 
-      <Hero heading="夏休み編" />
+      <Hero heading="Picture" subHeading="視覚表現" />
 
       <article>
         <TwoColumn>
