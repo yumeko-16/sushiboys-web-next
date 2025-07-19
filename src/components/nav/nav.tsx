@@ -48,6 +48,15 @@ export default function Nav() {
             News
           </Link>
         </li>
+        <li>
+          <Link
+            className={styles.link}
+            href="/picture/look/summer-vacation"
+            onClick={closeNav}
+          >
+            Picture
+          </Link>
+        </li>
       </ul>
     </nav>
   );
