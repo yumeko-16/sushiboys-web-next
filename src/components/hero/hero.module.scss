@@ -17,6 +17,7 @@
 }
 
 .heading {
+  display: inline-block;
   font-family: Oswald, sans-serif;
   font-size: var(--display);
   font-weight: 500;
@@ -29,6 +30,7 @@
 }
 
 .subHeading {
+  display: inline-block;
   color: var(--black);
   text-align: center;
 

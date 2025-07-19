@@ -24,14 +24,18 @@ export default function Hero({ heading, subHeading, imageOn = false }: Props) {
       {heading ? (
         isThirdLevel ? (
           <>
-            <Link className={styles.heading} href={secondLevelHref}>
-              {heading}
-            </Link>
+            <div>
+              <Link className={styles.heading} href={secondLevelHref}>
+                {heading}
+              </Link>
+            </div>
 
             {subHeading && (
-              <Link className={styles.subHeading} href={secondLevelHref}>
-                {subHeading}
-              </Link>
+              <div>
+                <Link className={styles.subHeading} href={secondLevelHref}>
+                  {subHeading}
+                </Link>
+              </div>
             )}
           </>
         ) : (
