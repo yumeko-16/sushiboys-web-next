@@ -49,7 +49,7 @@ import img039 from '@/images/picture/look/summer-vacation/039.webp';
 import img040 from '@/images/picture/look/summer-vacation/040.webp';
 import img041 from '@/images/picture/look/summer-vacation/041.webp';
 
-export default function Picture() {
+export default function SummerVacation() {
   const images = [
     img001,
     img002,

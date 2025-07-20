@@ -44,6 +44,7 @@ export default function Posts({ posts }: Props) {
                   blurDataURL={image.blurDataURL}
                 />
               </figure>
+
               <h2>{title}</h2>
             </Link>
           </article>
