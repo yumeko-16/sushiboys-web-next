@@ -69,26 +69,26 @@ export default function Post({
       <Hero heading="News" subHeading="大本営発表" />
 
       <article>
-        <PostHeader title={title} publish={publish} />
-
-        <figure>
-          <Image
-            key={eyecatch.url}
-            src={src}
-            alt=""
-            layout="responsive"
-            width={width}
-            height={height}
-            sizes="(min-width: 1152px) 1152px, 100vw"
-            priority
-            placeholder="blur"
-            blurDataURL={eyecatch.blurDataURL}
-          />
-        </figure>
-
         <TwoColumn>
           <TwoColumn.Main>
+            <PostHeader title={title} publish={publish} />
+
             <PostBody>
+              <figure>
+                <Image
+                  key={eyecatch.url}
+                  src={src}
+                  alt=""
+                  layout="responsive"
+                  width={width}
+                  height={height}
+                  sizes="(min-width: 1152px) 1152px, 100vw"
+                  priority
+                  placeholder="blur"
+                  blurDataURL={eyecatch.blurDataURL}
+                />
+              </figure>
+
               <ConvertBody contentHTML={content} />
             </PostBody>
           </TwoColumn.Main>

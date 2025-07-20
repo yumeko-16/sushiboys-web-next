@@ -10,7 +10,11 @@ export default function TwoColumn({ children }: Porps) {
 }
 
 TwoColumn.Main = ({ children }: Porps) => {
-  return <div className={styles.main}>{children}</div>;
+  return (
+    <div className={styles.main}>
+      <div className={styles.verticalSpace}>{children}</div>
+    </div>
+  );
 };
 
 TwoColumn.Sidebar = ({ children }: Porps) => {

@@ -3,6 +3,8 @@ import Container from '@/components/container/container';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
 import TwoColumn from '@/components/twoColumn/twoColumn';
+import PostHeader from '@/components/postHeader/postHeader';
+import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
 
 import img001 from '@/images/picture/look/summer-vacation/001.webp';
@@ -101,18 +103,22 @@ export default function Picture() {
       <article>
         <TwoColumn>
           <TwoColumn.Main>
-            <figure>
-              {images.map((image, index) => (
-                <Image
-                  key={index}
-                  src={image}
-                  alt={`夏休み編 LOOK 2022 - No.${index + 1}`}
-                  width={5000}
-                  height={2806}
-                  sizes="100vw"
-                />
-              ))}
-            </figure>
+            <PostHeader title="夏休み編" />
+
+            <PostBody>
+              <figure>
+                {images.map((image, index) => (
+                  <Image
+                    key={index}
+                    src={image}
+                    alt={`夏休み編 LOOK 2022 - No.${index + 1}`}
+                    width={5000}
+                    height={2806}
+                    sizes="100vw"
+                  />
+                ))}
+              </figure>
+            </PostBody>
           </TwoColumn.Main>
 
           <TwoColumn.Sidebar>

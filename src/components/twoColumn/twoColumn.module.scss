@@ -13,6 +13,11 @@
   }
 }
 
+.verticalSpace {
+  display: grid;
+  gap: var(--space-sm) 0;
+}
+
 .sidebar {
   @include utils.tablet-screen {
     position: sticky;
