@@ -38,7 +38,9 @@ export default function Nigiri() {
               <p>
                 作品種別：EP
                 <br />
-                発売日：2017.10.15 価格：￥2,000 (excluding tax)
+                発売日：2017.10.15
+                <br />
+                価格：￥2,000 (excluding tax)
                 <br />
                 視聴：
                 <a
