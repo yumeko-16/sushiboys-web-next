@@ -7,7 +7,7 @@ import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
 
-import image from '@/images/discography/nigiri.webp';
+import image from '@/images/discography/ep/nigiri.webp';
 
 export default function Nigiri() {
   return (
