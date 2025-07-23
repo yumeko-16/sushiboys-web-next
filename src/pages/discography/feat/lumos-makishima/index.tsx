@@ -9,7 +9,7 @@ import Contact from '@/components/contact/contact';
 
 import image from '@/images/discography/feat/lumos-makishima.webp';
 
-export default function Nigiri() {
+export default function LumosMakishima() {
   return (
     <Container>
       <Meta
