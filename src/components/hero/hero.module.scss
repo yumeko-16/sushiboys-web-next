@@ -11,7 +11,7 @@
   &[data-image='false'] {
     display: grid;
     gap: calc(var(--display) * 0.2);
-    padding-top: calc(var(--display) * 0.5);
+    padding-top: calc(var(--display) * 1.2);
     padding-bottom: calc(var(--display) * 0.7);
   }
 }
