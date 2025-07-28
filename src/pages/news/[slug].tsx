@@ -1,5 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
+import fs from 'fs';
+import path from 'path';
+import type { GetStaticPropsContext } from 'next';
+import { getPlaiceholder } from 'plaiceholder';
+import { eyecatchLocal } from '@/lib/constants';
+import defaultEyecatch from '@/images/no-image.png';
+import { getPostBySlug, getAllSlugs } from '@/lib/api';
+import { extractText } from '@/lib/extractText';
+import { prevNextPost } from '@/lib/prev-next-post';
 import Container from '@/components/container/container';
 import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
@@ -7,58 +15,81 @@ import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
 import Contact from '@/components/contact/contact';
-import { discographyData, DiscographyItem } from '@/lib/discographyData';
+import ConvertBody from '@/components/convertBody/convertBody';
+import Pagination from '@/components/pagination/pagination';
+
+const DEFAULT_WIDTH = 600;
+const DEFAULT_HEIGHT = 600;
 
 type Props = {
-  content: DiscographyItem;
+  title: string;
+  eyecatch: {
+    url: string;
+    width: number;
+    height: number;
+    blurDataURL: string;
+  };
+  content: string;
+  publish?: string;
+  description: string;
+  slug: string;
+  prevPost: {
+    title: string;
+    slug: string;
+  };
+  nextPost: {
+    title: string;
+    slug: string;
+  };
 };
 
-export default function DiscographyDetail({ content }: Props) {
+export default function Post({
+  title,
+  eyecatch,
+  content,
+  publish,
+  description,
+  prevPost,
+  nextPost,
+}: Props) {
+  const src = eyecatch?.url ?? defaultEyecatch;
+  const width = eyecatch?.width ?? DEFAULT_WIDTH;
+  const height = eyecatch?.height ?? DEFAULT_HEIGHT;
+
   return (
     <Container>
-      <Meta pageTitle={content.title} pageDesc={content.desc} />
+      <Meta
+        pageTitle={title}
+        pageDesc={description}
+        pageImg={eyecatch.url}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
 
-      <Hero heading="Discography" subHeading="楽曲" />
+      <Hero heading="News" subHeading="大本営発表" />
 
       <article>
         <TwoColumn>
           <TwoColumn.Main>
-            <PostHeader title={content.title} />
+            <PostHeader title={title} publish={publish} />
 
             <PostBody>
               <figure>
                 <Image
-                  src={content.image}
-                  alt={content.title}
-                  width={500}
-                  height={500}
-                  sizes="100vw"
+                  key={eyecatch.url}
+                  src={src}
+                  alt=""
+                  layout="responsive"
+                  width={width}
+                  height={height}
+                  sizes="(min-width: 1152px) 1152px, 100vw"
+                  priority
+                  placeholder="blur"
+                  blurDataURL={eyecatch.blurDataURL}
                 />
               </figure>
 
-              <p>
-                作品種別：{content.type}
-                <br />
-                発売日：{content.release}
-                <br />
-                価格：{content.price}
-                <br />
-                視聴：
-                <a
-                  href={content.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <u>ご視聴・ご購入はこちらから</u>
-                </a>
-              </p>
-
-              <h2>Song contents</h2>
-              <ol>
-                {content.songs.map((song, i) => (
-                  <li key={i}>{song}</li>
-                ))}
-              </ol>
+              <ConvertBody contentHTML={content} />
             </PostBody>
           </TwoColumn.Main>
 
@@ -66,32 +97,72 @@ export default function DiscographyDetail({ content }: Props) {
             <Contact />
           </TwoColumn.Sidebar>
         </TwoColumn>
+
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/news/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/news/${nextPost.slug}`}
+        />
       </article>
     </Container>
   );
 }
 
-// 静的パスを生成
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.entries(discographyData).flatMap(([category, items]) =>
-    Object.keys(items).map((slug) => ({
-      params: { category, slug },
-    })),
-  );
-  return { paths, fallback: false };
-};
-
-// ページ用データを渡す
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const category = params?.category as string;
-  const slug = params?.slug as string;
-  const content = discographyData[category]?.[slug] ?? null;
-
-  if (!content) {
-    return { notFound: true };
-  }
+export async function getStaticPaths() {
+  const allSlugs = await getAllSlugs();
 
   return {
-    props: { content },
+    paths: allSlugs.map(({ slug }: { slug: string }) => `/news/${slug}`),
+    fallback: false,
   };
-};
+}
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const slug = context.params?.slug as string;
+
+  const post = await getPostBySlug(slug);
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const description = extractText(post.content);
+  const eyecatch = post.eyecatch ?? eyecatchLocal;
+
+  let blurDataURL = '';
+  try {
+    if (eyecatch.url.startsWith('http')) {
+      const res = await fetch(eyecatch.url);
+      const arrayBuffer = await res.arrayBuffer();
+      const buffer = Buffer.from(arrayBuffer);
+      const { base64 } = await getPlaiceholder(buffer);
+      blurDataURL = base64;
+    } else {
+      const imagePath = path.join(process.cwd(), 'public', eyecatch.url);
+      const buffer = fs.readFileSync(imagePath);
+      const { base64 } = await getPlaiceholder(buffer);
+      blurDataURL = base64;
+    }
+  } catch (error) {
+    console.error('Failed to generate blurDataURL:', error);
+  }
+
+  eyecatch.blurDataURL = blurDataURL;
+
+  const allSlugs = await getAllSlugs();
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
+
+  return {
+    props: {
+      title: post.title,
+      eyecatch: eyecatch,
+      content: post.content,
+      publish: post.publishDate ?? null,
+      description: description,
+      prevPost: prevPost,
+      nextPost: nextPost,
+    },
+  };
+}
