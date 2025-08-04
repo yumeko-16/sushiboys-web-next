@@ -49,6 +49,11 @@ export default function Nav() {
           </Link>
         </li>
         <li>
+          <Link className={styles.link} href="/discography" onClick={closeNav}>
+            Discography
+          </Link>
+        </li>
+        <li>
           <Link className={styles.link} href="/picture" onClick={closeNav}>
             Picture
           </Link>
