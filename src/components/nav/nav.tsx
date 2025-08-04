@@ -2,10 +2,18 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './nav.module.scss';
 
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/news', label: 'News' },
+  { href: '/discography', label: 'Discography' },
+  { href: '/picture', label: 'Picture' },
+];
+
 export default function Nav() {
   const [navIsOpen, setNavIsOpen] = useState(false);
 
-  const toggeleNav = () => {
+  const toggleNav = () => {
     setNavIsOpen((prev) => !prev);
   };
 
@@ -27,37 +35,19 @@ export default function Nav() {
         </style>
       )}
 
-      <button className={styles.btn} onClick={toggeleNav}>
+      <button className={styles.btn} onClick={toggleNav}>
         <span className={styles.bar}></span>
         <span className="sr-only">Menu</span>
       </button>
 
       <ul className={styles.list}>
-        <li>
-          <Link className={styles.link} href="/" onClick={closeNav}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/about" onClick={closeNav}>
-            About
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/news" onClick={closeNav}>
-            News
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/discography" onClick={closeNav}>
-            Discography
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} href="/picture" onClick={closeNav}>
-            Picture
-          </Link>
-        </li>
+        {navItems.map((item) => (
+          <li key={item.href}>
+            <Link className={styles.link} href={item.href} onClick={closeNav}>
+              {item.label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </nav>
   );
