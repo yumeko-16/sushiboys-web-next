@@ -5,7 +5,7 @@ import Hero from '@/components/hero/hero';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
-import Contact from '@/components/contact/contact';
+import ContactInfo from '@/components/contactInfo/contactInfo';
 
 import img001 from '@/images/picture/look/summer-vacation/001.webp';
 import img002 from '@/images/picture/look/summer-vacation/002.webp';
@@ -122,7 +122,7 @@ export default function SummerVacation() {
           </TwoColumn.Main>
 
           <TwoColumn.Sidebar>
-            <Contact />
+            <ContactInfo />
           </TwoColumn.Sidebar>
         </TwoColumn>
       </article>

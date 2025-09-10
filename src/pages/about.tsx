@@ -3,7 +3,7 @@ import Meta from '@/components/meta/meta';
 import Hero from '@/components/hero/hero';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostBody from '@/components/postBody/postBody';
-import Contact from '@/components/contact/contact';
+import ContactInfo from '@/components/contactInfo/contactInfo';
 
 export default function About() {
   return (
@@ -31,7 +31,7 @@ export default function About() {
         </TwoColumn.Main>
 
         <TwoColumn.Sidebar>
-          <Contact />
+          <ContactInfo />
         </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>

@@ -6,7 +6,7 @@ import Hero from '@/components/hero/hero';
 import TwoColumn from '@/components/twoColumn/twoColumn';
 import PostHeader from '@/components/postHeader/postHeader';
 import PostBody from '@/components/postBody/postBody';
-import Contact from '@/components/contact/contact';
+import ContactInfo from '@/components/contactInfo/contactInfo';
 import { discographyData } from '@/lib/discographyData';
 
 export default function DiscographyDetail() {
@@ -116,7 +116,7 @@ export default function DiscographyDetail() {
           </TwoColumn.Main>
 
           <TwoColumn.Sidebar>
-            <Contact />
+            <ContactInfo />
           </TwoColumn.Sidebar>
         </TwoColumn>
       </article>
