@@ -1,0 +1,12 @@
+@use '@/styles/utils';
+
+.wrapper {
+  padding: var(--space-xl) 0;
+  background-color: var(--black);
+}
+
+.flexContainer {
+  gap: 2em;
+
+  @include utils.side-by-side-center;
+}

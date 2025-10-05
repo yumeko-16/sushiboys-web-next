@@ -1,0 +1,14 @@
+.stack > * + * {
+  margin-top: var(--stack-space, 1em);
+}
+
+.title {
+  --stack-space: 0.2em;
+}
+
+.publish {
+  display: flex;
+  gap: 0.5em;
+  font-size: var(--small-heading3);
+  color: var(--gray-50);
+}
