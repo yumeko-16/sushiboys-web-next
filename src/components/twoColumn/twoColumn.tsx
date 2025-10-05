@@ -1,22 +1,29 @@
-import { ReactNode } from 'react';
+import { ReactNode, FC } from 'react';
 import styles from './twoColumn.module.scss';
 
-type Porps = {
+type Props = {
   children: ReactNode;
 };
 
-export default function TwoColumn({ children }: Porps) {
+const TwoColumn: FC<Props> & {
+  Main: FC<Props>;
+  Sidebar: FC<Props>;
+} = ({ children }) => {
   return <div className={styles.flexContainer}>{children}</div>;
-}
+};
 
-TwoColumn.Main = ({ children }: Porps) => {
+TwoColumn.Main = ({ children }: Props) => {
   return (
     <div className={styles.main}>
       <div className={styles.verticalSpace}>{children}</div>
     </div>
   );
 };
+TwoColumn.Main.displayName = 'TwoColumn.Main';
 
-TwoColumn.Sidebar = ({ children }: Porps) => {
+TwoColumn.Sidebar = ({ children }: Props) => {
   return <div className={styles.sidebar}>{children}</div>;
 };
+TwoColumn.Sidebar.displayName = 'TwoColumn.Sidebar';
+
+export default TwoColumn;
