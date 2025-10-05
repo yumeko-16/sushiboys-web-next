@@ -1,0 +1,10 @@
+.stack > * + * {
+  margin-top: var(--stack-space, 1em);
+}
+
+.heading {
+  font-family: Oswald, sans-serif;
+  font-size: var(--body);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+}
