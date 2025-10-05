@@ -18,5 +18,13 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "typescript": "5.8.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "sass": "^1.86.3",
+    "stylelint": "^16.18.0",
+    "stylelint-config-prettier-scss": "^1.0.0",
+    "stylelint-config-recess-order": "^6.0.0",
+    "stylelint-config-standard-scss": "^14.0.0"
   }
 }
