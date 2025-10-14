@@ -8,6 +8,7 @@ const navItems = [
   { href: '/news', label: 'News' },
   { href: '/discography', label: 'Discography' },
   { href: '/picture', label: 'Picture' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Nav() {
