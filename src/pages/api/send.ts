@@ -13,16 +13,35 @@ export default async function handler(
 
   const { email, message } = req.body;
 
-  const msg = {
+  const toUser = {
     to: email,
     from: 'sushiboys.dev@gmail.com',
-    subject: 'お問合せありがとうございました。',
-    text: `お問合せを受け付けました。回答をお待ちください。\n\n${message}`,
-    html: `<p>お問合せを受け付けました。回答をお待ちください。</p><p>${message}</p>`,
+    subject: 'SUSHIBOYS - お問合せありがとうございます',
+    text: `お問い合わせを受け付けました。\n回答をお待ちください。\n\n${message}`,
+    html: `
+      <p>
+        お問合せを受け付けました。<br />
+        回答をお待ちください。
+      </p>
+
+      <p>${message}</p>
+    `,
+  };
+
+  const toAdmin = {
+    to: 'sushiboys.dev@gmail.com',
+    from: 'sushiboys.dev@gmail.com',
+    subject: 'SUSHIBOYS - お問合せがありました',
+    text: `以下の内容でお問い合わせがありました。\n\n送信者: ${email}\n\n${message}`,
+    html: `
+      <p>以下の内容でお問い合わせがありました。</p>
+      <p><strong>送信者: </strong>${email}</p>
+      <p>${message}</p>
+    `,
   };
 
   try {
-    await sgMail.send(msg);
+    await sgMail.send([toUser, toAdmin]);
     return res.status(200).json({ message: 'メール送信完了' });
   } catch (err: unknown) {
     console.error(err);
