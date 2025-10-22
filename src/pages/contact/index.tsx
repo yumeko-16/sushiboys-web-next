@@ -10,7 +10,10 @@ export default function Contact() {
     const target = e.target as HTMLFormElement;
     const res = await fetch('/api/send', {
       body: JSON.stringify({
+        name: (target.elements.namedItem('name') as HTMLInputElement).value,
         email: (target.elements.namedItem('email') as HTMLInputElement).value,
+        subject: (target.elements.namedItem('subject') as HTMLInputElement)
+          .value,
         message: (target.elements.namedItem('message') as HTMLTextAreaElement)
           .value,
       }),
@@ -32,13 +35,37 @@ export default function Contact() {
 
       <form onSubmit={registerUser}>
         <label>
+          お名前：
+          <input type="text" name="name" placeholder="来五張" required />
+        </label>
+
+        <label>
           メールアドレス:
-          <input type="email" name="email" required />
+          <input
+            type="email"
+            name="email"
+            placeholder="raigocho@gmail.com"
+            required
+          />
+        </label>
+
+        <label>
+          件名：
+          <input
+            type="text"
+            name="subject"
+            placeholder="ザリガニの集団心理"
+            required
+          />
         </label>
 
         <label>
           メッセージ:
-          <textarea name="message" required />
+          <textarea
+            name="message"
+            placeholder="無矛盾な公理的集合論は自己の無矛盾性を証明できないザリガニである。"
+            required
+          />
         </label>
 
         <button type="submit">送信</button>
