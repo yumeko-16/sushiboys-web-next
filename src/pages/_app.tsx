@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import Layout from '@/components/layout/layout';
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 // Font Awesome settings
 import '@fortawesome/fontawesome-svg-core/styles.css';
