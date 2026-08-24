@@ -1,0 +1,7 @@
+@use '@/styles/mixin';
+
+.text {
+  @include mixin.tabletScreen {
+    text-align: center;
+  }
+}

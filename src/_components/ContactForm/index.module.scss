@@ -1,0 +1,65 @@
+@use '@/styles/mixin';
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 8px 0;
+}
+
+.horizontal {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+}
+
+.textfield,
+.textarea {
+  width: 100%;
+  padding: 8px;
+  line-height: 1.5;
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+}
+
+.actions {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.button {
+  padding: 16px 40px;
+  font-size: 16px;
+  color: var(--white);
+  cursor: pointer;
+  background-color: var(--black);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
+.success {
+  padding: 40px;
+  background-color: var(--gray);
+  border-radius: var(--border-radius);
+
+  @include mixin.tabletScreen {
+    text-align: center;
+  }
+}
+
+.error {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--color-text-error);
+}
