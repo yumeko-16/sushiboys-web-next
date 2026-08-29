@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import Hero from '@/_components/Hero';
 import Sheet from '@/_components/Sheet';
 import ContactForm from '@/_components/ContactForm';
 import styles from './page.module.scss';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'SUSHIBOYSの鼓膜に直接コンタクト。ご連絡おまちしております。',
+  openGraph: {
+    title: 'Contact - SUSHIBOYS',
+    description: 'SUSHIBOYSの鼓膜に直接コンタクト。ご連絡おまちしております。',
+  },
+  alternates: {
+    canonical: '/contact',
+  },
+};
 
 export default function Page() {
   return (

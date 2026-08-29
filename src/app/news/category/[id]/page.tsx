@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
@@ -9,8 +10,26 @@ import { NEWS_LIST_LIMIT } from '@/_constants';
 type Props = {
   params: Promise<{
     id: string;
+    name: string;
   }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const category = await getCategoryDetail(id).catch(notFound);
+
+  return {
+    title: category.name,
+    description: `SUSHIBOYSの${category.name}ニュース。`,
+    openGraph: {
+      title: category.name,
+      description: `SUSHIBOYSの${category.name}ニュース。`,
+    },
+    alternates: {
+      canonical: `/news/category/${id}`,
+    },
+  };
+}
 
 export default async function Page({ params }: Props) {
   const { id } = await params;
