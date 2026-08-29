@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://sushiboys350.com/sitemap.xml
