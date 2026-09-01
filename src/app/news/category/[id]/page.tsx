@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Container from '@/_components/Container';
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from '@/_components/TwoColumn';
 import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
 import Category from '@/_components/Category';
 import Pagination from '@/_components/Pagination';
+import Contact from '@/_components/Contact';
 import { getCategoryDetail, getNewsList } from '@/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/_constants';
 
@@ -41,18 +48,28 @@ export default async function Page({ params }: Props) {
 
   return (
     <>
-      <p>
-        <Category category={category} /> の一覧
-      </p>
+      <Container>
+        <TwoColumn>
+          <TwoColumnMain>
+            <p>
+              <Category category={category} /> の一覧
+            </p>
 
-      <Sheet>
-        <NewsList news={news} />
-      </Sheet>
+            <Sheet>
+              <NewsList news={news} />
+            </Sheet>
 
-      <Pagination
-        totalCount={totalCount}
-        basePath={`/news/category/${category.id}`}
-      />
+            <Pagination
+              totalCount={totalCount}
+              basePath={`/news/category/${category.id}`}
+            />
+          </TwoColumnMain>
+
+          <TwoColumnSidebar>
+            <Contact />
+          </TwoColumnSidebar>
+        </TwoColumn>
+      </Container>
     </>
   );
 }

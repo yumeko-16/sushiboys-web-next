@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
 import Hero from '@/_components/Hero';
+import Container from '@/_components/Container';
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from '@/_components/TwoColumn';
 import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
 import Pagination from '@/_components/Pagination';
 import SearchField from '@/_components/SearchField';
+import Contact from '@/_components/Contact';
 import { getNewsList } from '@/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/_constants';
+import styles from './page.module.scss';
 
 export const revalidate = 60;
 
@@ -32,12 +40,22 @@ export default async function Page() {
     <>
       <Hero heading="News" subHeading="戦況報告" />
 
-      <Sheet>
-        <SearchField />
-        <NewsList news={news} />
-      </Sheet>
+      <Container>
+        <TwoColumn>
+          <TwoColumnMain>
+            <Sheet>
+              <SearchField />
+              <NewsList news={news} />
+            </Sheet>
 
-      <Pagination totalCount={totalCount} />
+            <Pagination totalCount={totalCount} />
+          </TwoColumnMain>
+
+          <TwoColumnSidebar>
+            <Contact />
+          </TwoColumnSidebar>
+        </TwoColumn>
+      </Container>
     </>
   );
 }

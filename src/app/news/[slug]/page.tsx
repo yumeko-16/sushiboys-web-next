@@ -1,8 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Container from '@/_components/Container';
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from '@/_components/TwoColumn';
 import Article from '@/_components/Article';
 import ButtonLink from '@/_components/ButtonLink';
+import Contact from '@/_components/Contact';
 import { getNewsDetail } from '@/_libs/microcms';
+import styles from './page.module.scss';
 
 type Props = {
   params: Promise<{
@@ -46,11 +54,21 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <>
-      <Article data={data} />
+      <Container>
+        <TwoColumn>
+          <TwoColumnMain>
+            <Article data={data} />
 
-      <div>
-        <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
-      </div>
+            <div>
+              <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
+            </div>
+          </TwoColumnMain>
+
+          <TwoColumnSidebar>
+            <Contact />
+          </TwoColumnSidebar>
+        </TwoColumn>
+      </Container>
     </>
   );
 }

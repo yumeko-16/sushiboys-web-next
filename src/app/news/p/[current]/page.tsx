@@ -1,9 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Hero from '@/_components/Hero';
+import Container from '@/_components/Container';
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from '@/_components/TwoColumn';
 import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
 import Pagination from '@/_components/Pagination';
+import Contact from '@/_components/Contact';
 import { getNewsList } from '@/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/_constants';
 
@@ -48,11 +55,21 @@ export default async function Page({ params }: Props) {
     <>
       <Hero heading="News" subHeading="戦況報告" />
 
-      <Sheet>
-        <NewsList news={news} />
-      </Sheet>
+      <Container>
+        <TwoColumn>
+          <TwoColumnMain>
+            <Sheet>
+              <NewsList news={news} />
+            </Sheet>
 
-      <Pagination totalCount={totalCount} current={parsed} />
+            <Pagination totalCount={totalCount} current={parsed} />
+          </TwoColumnMain>
+
+          <TwoColumnSidebar>
+            <Contact />
+          </TwoColumnSidebar>
+        </TwoColumn>
+      </Container>
     </>
   );
 }
