@@ -10,7 +10,6 @@ import Article from '@/_components/Article';
 import ButtonLink from '@/_components/ButtonLink';
 import Contact from '@/_components/Contact';
 import { getNewsDetail } from '@/_libs/microcms';
-import styles from './page.module.scss';
 
 type Props = {
   params: Promise<{

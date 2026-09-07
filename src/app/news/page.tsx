@@ -13,7 +13,6 @@ import SearchField from '@/_components/SearchField';
 import Contact from '@/_components/Contact';
 import { getNewsList } from '@/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/_constants';
-import styles from './page.module.scss';
 
 export const revalidate = 60;
 
@@ -45,6 +44,7 @@ export default async function Page() {
           <TwoColumnMain>
             <Sheet>
               <SearchField />
+
               <NewsList news={news} />
             </Sheet>
 
