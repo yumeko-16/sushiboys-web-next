@@ -22,6 +22,7 @@ export default function Hero({ heading, subHeading, imageOn = false }: Props) {
             width={3000}
             height={2000}
             priority
+            sizes="(min-width: 768px) 500px, 92vw"
           />
         </h1>
       ) : (
