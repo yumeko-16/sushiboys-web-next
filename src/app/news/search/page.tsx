@@ -12,7 +12,6 @@ import SearchField from '@/_components/SearchField';
 import Contact from '@/_components/Contact';
 import { getNewsList } from '@/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/_constants';
-import styles from './page.module.scss';
 
 type Props = {
   searchParams: Promise<{
@@ -50,6 +49,7 @@ export default async function Page({ searchParams }: Props) {
           <TwoColumnMain>
             <Sheet>
               <SearchField />
+
               <NewsList news={news} />
             </Sheet>
           </TwoColumnMain>

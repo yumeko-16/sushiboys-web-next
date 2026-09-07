@@ -7,7 +7,6 @@ import {
   TwoColumnSidebar,
 } from '@/_components/TwoColumn';
 import Contact from '@/_components/Contact';
-import styles from './page.module.scss';
 
 export const metadata: Metadata = {
   title: 'Discography',
