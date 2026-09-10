@@ -1,13 +1,11 @@
-import Link from 'next/link';
 import Image from 'next/image';
-import Date from '@/_components/Date';
-import Category from '@/_components/Category';
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
 } from '@/_components/TwoColumn';
 import Sheet from '../Sheet';
+import PostHeader from '@/_components/PostHeader';
 import PostBody from '@/_components/PostBody';
 import ButtonLink from '@/_components/ButtonLink';
 import Contact from '@/_components/Contact';
@@ -24,15 +22,11 @@ export default function Article({ data }: Props) {
       <TwoColumn>
         <TwoColumnMain>
           <Sheet>
-            <h1>{data.title}</h1>
-
-            <div>
-              <Link href={`/news/category/${data.category.id}`}>
-                <Category category={data.category} />
-              </Link>
-
-              <Date date={data.publishedAt ?? data.createdAt} />
-            </div>
+            <PostHeader
+              title={data.title}
+              category={data.category}
+              date={data.publishedAt ?? data.createdAt}
+            />
 
             {data.eyecatch && (
               <figure className={styles.eyecatch}>
