@@ -1,3 +1,5 @@
+@use '@/styles/mixin';
+
 .stack > * + * {
   margin-top: var(--stack-space, 1.5em);
 }
@@ -17,4 +19,8 @@
 .stack ul {
   padding: revert;
   list-style: revert;
+}
+
+.stack img {
+  @include mixin.img;
 }

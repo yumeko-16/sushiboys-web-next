@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Container from '@/_components/Container';
 import styles from './index.module.scss';
 
 type Props = {
@@ -26,11 +25,9 @@ export default function Hero({ heading, subHeading, imageOn = false }: Props) {
           />
         </h1>
       ) : (
-        <Container>
-          <h1 className={styles.heading} data-ja={subHeading}>
-            {heading}
-          </h1>
-        </Container>
+        <h1 className={styles.heading} data-ja={subHeading}>
+          {heading}
+        </h1>
       )}
     </section>
   );

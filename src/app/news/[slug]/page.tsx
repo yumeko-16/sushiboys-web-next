@@ -1,14 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Container from '@/_components/Container';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/_components/TwoColumn';
 import Article from '@/_components/Article';
-import ButtonLink from '@/_components/ButtonLink';
-import Contact from '@/_components/Contact';
 import { getNewsDetail } from '@/_libs/microcms';
 
 type Props = {
@@ -52,22 +45,8 @@ export default async function Page({ params, searchParams }: Props) {
   const data = await getNewsDetail(slug, { draftKey: dk }).catch(notFound);
 
   return (
-    <>
-      <Container>
-        <TwoColumn>
-          <TwoColumnMain>
-            <Article data={data} />
-
-            <div>
-              <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
-            </div>
-          </TwoColumnMain>
-
-          <TwoColumnSidebar>
-            <Contact />
-          </TwoColumnSidebar>
-        </TwoColumn>
-      </Container>
-    </>
+    <Container>
+      <Article data={data} />
+    </Container>
   );
 }

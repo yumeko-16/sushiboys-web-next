@@ -1,3 +1,4 @@
+import Container from '@/_components/Container';
 import Hero from '@/_components/Hero';
 import NewsList from '@/_components/NewsList';
 import ButtonLink from '@/_components/ButtonLink';
@@ -13,7 +14,7 @@ export default async function Page() {
   });
 
   return (
-    <>
+    <Container>
       <Hero heading="SUSHIBOYS" imageOn />
 
       <section className={styles.news}>
@@ -25,6 +26,6 @@ export default async function Page() {
           <ButtonLink href="/news">もっとみる</ButtonLink>
         </div>
       </section>
-    </>
+    </Container>
   );
 }

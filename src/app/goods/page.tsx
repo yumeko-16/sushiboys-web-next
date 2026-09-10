@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Hero from '@/_components/Hero';
 import Container from '@/_components/Container';
+import Hero from '@/_components/Hero';
 import {
   TwoColumn,
   TwoColumnMain,
@@ -24,18 +24,16 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <>
+    <Container>
       <Hero heading="Goods" subHeading="物資" />
 
-      <Container>
-        <TwoColumn>
-          <TwoColumnMain>ダミー</TwoColumnMain>
+      <TwoColumn>
+        <TwoColumnMain>ダミー</TwoColumnMain>
 
-          <TwoColumnSidebar>
-            <Contact />
-          </TwoColumnSidebar>
-        </TwoColumn>
-      </Container>
-    </>
+        <TwoColumnSidebar>
+          <Contact />
+        </TwoColumnSidebar>
+      </TwoColumn>
+    </Container>
   );
 }

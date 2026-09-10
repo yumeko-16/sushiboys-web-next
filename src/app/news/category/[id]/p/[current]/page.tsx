@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Hero from '@/_components/Hero';
 import Container from '@/_components/Container';
+import Hero from '@/_components/Hero';
 import {
   TwoColumn,
   TwoColumnMain,
@@ -60,28 +60,26 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <>
+    <Container>
       <Hero heading="News" subHeading="戦況報告" />
 
-      <Container>
-        <TwoColumn>
-          <TwoColumnMain>
-            <Sheet>
-              <NewsList news={news} />
-            </Sheet>
+      <TwoColumn>
+        <TwoColumnMain>
+          <Sheet>
+            <NewsList news={news} />
+          </Sheet>
 
-            <Pagination
-              totalCount={totalCount}
-              current={parsed}
-              basePath={`/news/category/${category.id}`}
-            />
-          </TwoColumnMain>
+          <Pagination
+            totalCount={totalCount}
+            current={parsed}
+            basePath={`/news/category/${category.id}`}
+          />
+        </TwoColumnMain>
 
-          <TwoColumnSidebar>
-            <Contact />
-          </TwoColumnSidebar>
-        </TwoColumn>
-      </Container>
-    </>
+        <TwoColumnSidebar>
+          <Contact />
+        </TwoColumnSidebar>
+      </TwoColumn>
+    </Container>
   );
 }
