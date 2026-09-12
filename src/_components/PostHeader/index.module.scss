@@ -2,6 +2,10 @@
   margin-top: 1em;
 }
 
-.stack a {
+.stack :where(h1) {
+  text-box: trim-both text;
+}
+
+.stack :where(a) {
   display: inline-flex;
 }

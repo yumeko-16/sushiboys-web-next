@@ -4,4 +4,9 @@
 
 .heading {
   font-size: var(--body);
+  text-box: trim-both cap alphabetic;
+}
+
+.stack address {
+  text-box: trim-both cap alphabetic;
 }
