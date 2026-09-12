@@ -27,4 +27,5 @@
   margin-top: var(--space-sm);
   font-size: clamp(0.75rem, 0.678rem + 0.31vw, 0.875rem);
   text-align: center;
+  text-box: trim-both cap alphabetic;
 }
