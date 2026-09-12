@@ -7,6 +7,7 @@ import {
 import Sheet from '../Sheet';
 import PostHeader from '@/_components/PostHeader';
 import PostBody from '@/_components/PostBody';
+import ConvertBody from '@/_components/ConvertBody';
 import ButtonLink from '@/_components/ButtonLink';
 import Contact from '@/_components/Contact';
 import type { News } from '@/_libs/microcms';
@@ -41,7 +42,9 @@ export default function Article({ data }: Props) {
               </figure>
             )}
 
-            <PostBody html={data.content} />
+            <PostBody>
+              <ConvertBody contentHTML={data.content} />
+            </PostBody>
           </Sheet>
 
           <div>
