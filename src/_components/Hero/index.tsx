@@ -26,7 +26,7 @@ export default function Hero({ heading, subHeading, imageOn = false }: Props) {
         </h1>
       ) : (
         <h1 className={styles.heading} data-ja={subHeading}>
-          {heading}
+          <span>{heading}</span>
         </h1>
       )}
     </section>

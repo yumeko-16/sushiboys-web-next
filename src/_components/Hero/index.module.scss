@@ -25,13 +25,18 @@
 
 .heading {
   display: grid;
-  gap: calc(var(--display) * 0.1);
+  gap: calc(var(--display) * 0.3);
   font-size: var(--display);
   line-height: 1;
   text-transform: uppercase;
 }
 
+.heading span {
+  text-box: trim-both cap alphabetic;
+}
+
 .heading::after {
   font-size: var(--body);
   content: attr(data-ja);
+  text-box: trim-both text;
 }
