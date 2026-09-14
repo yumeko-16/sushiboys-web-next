@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Category from '@/_components/Category';
+import PostCategory from '@/_components/PostCategory';
 import Date from '@/_components/Date';
 import type { Category as CategoryType } from '@/_libs/microcms';
 import styles from './index.module.scss';
@@ -16,7 +16,7 @@ export default function PostHeader({ title, category, date }: Props) {
       <h1>{title}</h1>
 
       <Link href={`/news/category/${category.id}`}>
-        <Category category={category} />
+        <PostCategory category={category} />
       </Link>
 
       <Date date={date} />

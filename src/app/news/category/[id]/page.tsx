@@ -8,7 +8,7 @@ import {
 } from '@/_components/TwoColumn';
 import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
-import Category from '@/_components/Category';
+import PostCategory from '@/_components/PostCategory';
 import Pagination from '@/_components/Pagination';
 import Contact from '@/_components/Contact';
 import { getCategoryDetail, getNewsList } from '@/_libs/microcms';
@@ -51,7 +51,7 @@ export default async function Page({ params }: Props) {
       <TwoColumn>
         <TwoColumnMain>
           <p>
-            <Category category={category} /> の一覧
+            <PostCategory category={category} /> の一覧
           </p>
 
           <Sheet>

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Category from '@/_components/Category';
+import PostCategory from '@/_components/PostCategory';
 import Date from '@/_components/Date';
 import { News } from '@/_libs/microcms';
 import styles from './index.module.scss';
@@ -38,7 +38,7 @@ export default function NewsList({ news }: Props) {
             <dl className={styles.content}>
               <dt className={styles.title}>{article.title}</dt>
               <dd className={styles.meta}>
-                <Category category={article.category} />
+                <PostCategory category={article.category} />
                 <Date date={article.publishedAt ?? article.createdAt} />
               </dd>
             </dl>
