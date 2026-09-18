@@ -10,7 +10,7 @@ const navItems = [
   { id: 'news', href: '/news', label: 'News' },
   { id: 'discography', href: '/discography', label: 'Discography' },
   { id: 'goods', href: '/goods', label: 'Goods' },
-  { id: 'picture', href: '/picture', label: 'Picture' },
+  { id: 'picture', href: '/picture/look/summer-vacation', label: 'Picture' },
   { id: 'contact', href: '/contact', label: 'Contact' },
 ];
 

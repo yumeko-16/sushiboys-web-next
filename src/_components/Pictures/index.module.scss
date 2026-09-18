@@ -1,0 +1,5 @@
+@use '@/styles/mixin';
+
+.image img {
+  @include mixin.img;
+}
