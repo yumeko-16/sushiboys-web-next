@@ -41,7 +41,7 @@ const data = {
   ],
 };
 
-export default function Member() {
+export default function Members() {
   return (
     <>
       {data.contents.length === 0 ? (

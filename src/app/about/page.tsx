@@ -8,7 +8,7 @@ import {
 } from '@/_components/TwoColumn';
 import PostBody from '@/_components/PostBody';
 import Sheet from '@/_components/Sheet';
-import Member from '@/_components/Member';
+import Members from '@/_components/Members';
 import Contact from '@/_components/Contact';
 
 export const metadata: Metadata = {
@@ -46,7 +46,7 @@ export default function Page() {
       <TwoColumn>
         <TwoColumnMain>
           <Sheet>
-            <Member />
+            <Members />
           </Sheet>
         </TwoColumnMain>
 
