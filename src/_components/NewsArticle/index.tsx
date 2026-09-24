@@ -4,7 +4,7 @@ import {
   TwoColumnMain,
   TwoColumnSidebar,
 } from '@/_components/TwoColumn';
-import Sheet from '../Sheet';
+import Sheet from '@/_components/Sheet';
 import PostHeader from '@/_components/PostHeader';
 import PostBody from '@/_components/PostBody';
 import ConvertBody from '@/_components/ConvertBody';
@@ -17,7 +17,7 @@ type Props = {
   data: News;
 };
 
-export default function Article({ data }: Props) {
+export default function NewsArticle({ data }: Props) {
   return (
     <article>
       <TwoColumn>

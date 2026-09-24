@@ -6,6 +6,8 @@ import {
   TwoColumnMain,
   TwoColumnSidebar,
 } from '@/_components/TwoColumn';
+import Sheet from '@/_components/Sheet';
+import PictureList from '@/_components/PictureList';
 import Contact from '@/_components/Contact';
 
 export const metadata: Metadata = {
@@ -26,7 +28,11 @@ export default function Page() {
       <Hero heading="Picture" subHeading="視覚資料" />
 
       <TwoColumn>
-        <TwoColumnMain>ダミー</TwoColumnMain>
+        <TwoColumnMain>
+          <Sheet>
+            <PictureList />
+          </Sheet>
+        </TwoColumnMain>
 
         <TwoColumnSidebar>
           <Contact />

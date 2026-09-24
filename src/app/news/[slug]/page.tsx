@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Container from '@/_components/Container';
-import Article from '@/_components/Article';
+import NewsArticle from '@/_components/NewsArticle';
 import { getNewsDetail } from '@/_libs/microcms';
 
 type Props = {
@@ -46,7 +46,7 @@ export default async function Page({ params, searchParams }: Props) {
 
   return (
     <Container>
-      <Article data={data} />
+      <NewsArticle data={data} />
     </Container>
   );
 }
