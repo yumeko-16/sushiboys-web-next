@@ -19,16 +19,14 @@ type Props = {
   }[];
 };
 
-export default function Pictures({ heading, contents }: Props) {
+export default function PictureArticle({ heading, contents }: Props) {
   return (
     <article>
       <TwoColumn>
         <TwoColumnMain>
           <h1>{heading}</h1>
 
-          {contents.length === 0 ? (
-            <p>写真はありません。</p>
-          ) : (
+          {contents.length > 0 && (
             <div>
               {contents.map((item, index) => (
                 <figure key={index} className={styles.image}>
