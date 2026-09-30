@@ -34,9 +34,8 @@ const DATA = {
         height: 480,
       },
       name: 'FARMHOUSE',
-      position: 'CEO',
-      profile:
-        '腹に赤子を宿している。いつも自分の腹をさすって語りかけているからきっとそうなのだろう。',
+      position: '俺がCEOだ 舐めるな',
+      profile: 'いつも自分の腹をさすさすしている。ソックスは膝上まで上げる派。',
     },
     {
       id: '2',
@@ -47,12 +46,12 @@ const DATA = {
         height: 480,
       },
       name: 'サンテナ',
-      position: 'COO',
+      position: 'ザ・コクピット',
       profile:
-        '脳筋。三國無双でいうところの魏延。敵キャラとして出てくるCPUの魏延はエグい。',
+        '脳筋。三國無双でいうところの魏延。五丈原の戦いに出てくるCPUの魏延の強さは異常。',
     },
     {
-      id: '3',
+      id: '5',
       image: {
         url: '/member_neo-yoshikawa.jpg',
         alt: '',
@@ -60,8 +59,9 @@ const DATA = {
         height: 480,
       },
       name: 'neo yoshikawa',
-      position: 'CTO',
-      profile: '電話交換手。小説の中だと頻繁に惨殺される。',
+      position: '電話交換手',
+      profile:
+        '小説の中だと頻繁に惨殺されるし、ゲームのデータ消されがち。つけ麺に厳しい。',
     },
   ],
 };
