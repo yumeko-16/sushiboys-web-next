@@ -11,8 +11,8 @@ import NewsList from '@/_components/NewsList';
 import Pagination from '@/_components/Pagination';
 import SearchField from '@/_components/SearchField';
 import Contact from '@/_components/Contact';
-import { getNewsList } from '@/_libs/microcms';
-import { NEWS_LIST_LIMIT } from '@/_constants';
+import { getNewsList } from '@/libs/microcms';
+import { NEWS_LIST_LIMIT } from '@/constants';
 
 export const revalidate = 60;
 

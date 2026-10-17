@@ -2,8 +2,8 @@ import Container from '@/_components/Container';
 import Hero from '@/_components/Hero';
 import NewsList from '@/_components/NewsList';
 import ButtonLink from '@/_components/ButtonLink';
-import { getNewsList } from '@/_libs/microcms';
-import { TOP_NEWS_LIMIT } from '@/_constants';
+import { getNewsList } from '@/libs/microcms';
+import { TOP_NEWS_LIMIT } from '@/constants';
 import styles from './page.module.scss';
 
 export const revalidate = 60;

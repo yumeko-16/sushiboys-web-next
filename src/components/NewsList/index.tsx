@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import PostCategory from '@/_components/PostCategory';
-import Date from '@/_components/Date';
-import { News } from '@/_libs/microcms';
+import PostCategory from '@/components/PostCategory';
+import Date from '@/components/Date';
+import { News } from '@/libs/microcms';
 import styles from './index.module.scss';
 
 type Props = {

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { NEWS_LIST_LIMIT } from '@/_constants';
+import { NEWS_LIST_LIMIT } from '@/constants';
 import styles from './index.module.scss';
 
 type Props = {

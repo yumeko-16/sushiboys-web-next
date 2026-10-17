@@ -11,8 +11,8 @@ import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
 import Pagination from '@/_components/Pagination';
 import Contact from '@/_components/Contact';
-import { getCategoryDetail, getNewsList } from '@/_libs/microcms';
-import { NEWS_LIST_LIMIT } from '@/_constants';
+import { getCategoryDetail, getNewsList } from '@/libs/microcms';
+import { NEWS_LIST_LIMIT } from '@/constants';
 
 type Props = {
   params: Promise<{

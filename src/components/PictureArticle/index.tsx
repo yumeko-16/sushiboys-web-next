@@ -3,8 +3,8 @@ import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import Contact from '@/_components/Contact';
+} from '@/components/TwoColumn';
+import Contact from '@/components/Contact';
 import styles from './index.module.scss';
 
 type Props = {

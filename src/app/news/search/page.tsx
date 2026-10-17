@@ -10,8 +10,8 @@ import Sheet from '@/_components/Sheet';
 import NewsList from '@/_components/NewsList';
 import SearchField from '@/_components/SearchField';
 import Contact from '@/_components/Contact';
-import { getNewsList } from '@/_libs/microcms';
-import { NEWS_LIST_LIMIT } from '@/_constants';
+import { getNewsList } from '@/libs/microcms';
+import { NEWS_LIST_LIMIT } from '@/constants';
 
 type Props = {
   searchParams: Promise<{

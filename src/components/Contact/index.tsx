@@ -1,4 +1,4 @@
-import Social from '@/_components/Social';
+import Social from '@/components/Social';
 import styles from './index.module.scss';
 
 export default function Contact() {

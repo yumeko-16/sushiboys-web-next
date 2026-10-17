@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { getAllCategoryList, getAllNewsList } from '@/_libs/microcms';
+import { getAllCategoryList, getAllNewsList } from '@/libs/microcms';
 
 const buildUrl = (path?: string) => `https://sushiboys350.com${path ?? ''}`;
 
