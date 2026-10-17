@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Container from '@/_components/Container';
-import PictureArticle from '@/_components/PictureArticle';
+import Container from '@/components/Container';
+import PictureArticle from '@/components/PictureArticle';
 
 const TITLE = '夏休み編';
 
