@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import ConvertDate from '@/_components/ConvertDate';
+import ConvertDate from '@/components/ConvertDate';
 import styles from './index.module.scss';
 
 type Props = {

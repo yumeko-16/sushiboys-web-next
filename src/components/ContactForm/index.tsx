@@ -1,7 +1,7 @@
 'use client';
 
 import { useActionState } from 'react';
-import { createContactData } from '@/_actions/contact';
+import { createContactData } from '@/actions/contact';
 import styles from './index.module.scss';
 
 const initialState = {

@@ -3,14 +3,14 @@ import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import Sheet from '@/_components/Sheet';
-import PostHeader from '@/_components/PostHeader';
-import PostBody from '@/_components/PostBody';
-import ConvertBody from '@/_components/ConvertBody';
-import ButtonLink from '@/_components/ButtonLink';
-import Contact from '@/_components/Contact';
-import type { News } from '@/_libs/microcms';
+} from '@/components/TwoColumn';
+import Sheet from '@/components/Sheet';
+import PostHeader from '@/components/PostHeader';
+import PostBody from '@/components/PostBody';
+import ConvertBody from '@/components/ConvertBody';
+import ButtonLink from '@/components/ButtonLink';
+import Contact from '@/components/Contact';
+import type { News } from '@/libs/microcms';
 import styles from './index.module.scss';
 
 type Props = {

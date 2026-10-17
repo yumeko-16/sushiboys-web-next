@@ -1,6 +1,6 @@
-import Container from '@/_components/Container';
-import SiteName from '@/_components/SiteName';
-import Nav from '@/_components/Nav';
+import Container from '@/components/Container';
+import SiteName from '@/components/SiteName';
+import Nav from '@/components/Nav';
 import styles from './index.module.scss';
 
 export default function Header() {

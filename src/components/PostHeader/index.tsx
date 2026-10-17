@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import PostCategory from '@/_components/PostCategory';
-import Date from '@/_components/Date';
-import type { Category as CategoryType } from '@/_libs/microcms';
+import PostCategory from '@/components/PostCategory';
+import Date from '@/components/Date';
+import type { Category as CategoryType } from '@/libs/microcms';
 import styles from './index.module.scss';
 
 type Props = {
