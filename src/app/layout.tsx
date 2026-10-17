@@ -4,8 +4,8 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import './globals.css';
-import Header from '@/_components/Header';
-import Footer from '@/_components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://sushiboys350.com'),

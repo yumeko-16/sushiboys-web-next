@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Container from '@/_components/Container';
-import Hero from '@/_components/Hero';
+import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import Sheet from '@/_components/Sheet';
-import NewsList from '@/_components/NewsList';
-import Pagination from '@/_components/Pagination';
-import Contact from '@/_components/Contact';
+} from '@/components/TwoColumn';
+import Sheet from '@/components/Sheet';
+import NewsList from '@/components/NewsList';
+import Pagination from '@/components/Pagination';
+import Contact from '@/components/Contact';
 import { getNewsList } from '@/libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/constants';
 

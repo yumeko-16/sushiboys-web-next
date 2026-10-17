@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
-import Container from '@/_components/Container';
-import Hero from '@/_components/Hero';
+import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import Sheet from '@/_components/Sheet';
-import PictureList from '@/_components/PictureList';
-import Contact from '@/_components/Contact';
+} from '@/components/TwoColumn';
+import Sheet from '@/components/Sheet';
+import PictureList from '@/components/PictureList';
+import Contact from '@/components/Contact';
 
 export const metadata: Metadata = {
   title: 'Picture',

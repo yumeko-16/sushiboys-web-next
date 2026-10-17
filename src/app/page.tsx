@@ -1,7 +1,7 @@
-import Container from '@/_components/Container';
-import Hero from '@/_components/Hero';
-import NewsList from '@/_components/NewsList';
-import ButtonLink from '@/_components/ButtonLink';
+import Container from '@/components/Container';
+import Hero from '@/components/Hero';
+import NewsList from '@/components/NewsList';
+import ButtonLink from '@/components/ButtonLink';
 import { getNewsList } from '@/libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/constants';
 import styles from './page.module.scss';

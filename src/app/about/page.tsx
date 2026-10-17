@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import Container from '@/_components/Container';
-import Hero from '@/_components/Hero';
+import Container from '@/components/Container';
+import Hero from '@/components/Hero';
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import PostBody from '@/_components/PostBody';
-import Sheet from '@/_components/Sheet';
-import Members from '@/_components/Members';
-import Contact from '@/_components/Contact';
+} from '@/components/TwoColumn';
+import PostBody from '@/components/PostBody';
+import Sheet from '@/components/Sheet';
+import Members from '@/components/Members';
+import Contact from '@/components/Contact';
 
 export const metadata: Metadata = {
   title: 'About',

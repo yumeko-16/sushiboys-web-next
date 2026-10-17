@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import Hero from '@/_components/Hero';
-import Container from '@/_components/Container';
+import Hero from '@/components/Hero';
+import Container from '@/components/Container';
 import {
   TwoColumn,
   TwoColumnMain,
   TwoColumnSidebar,
-} from '@/_components/TwoColumn';
-import Sheet from '@/_components/Sheet';
-import NewsList from '@/_components/NewsList';
-import SearchField from '@/_components/SearchField';
-import Contact from '@/_components/Contact';
+} from '@/components/TwoColumn';
+import Sheet from '@/components/Sheet';
+import NewsList from '@/components/NewsList';
+import SearchField from '@/components/SearchField';
+import Contact from '@/components/Contact';
 import { getNewsList } from '@/libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/constants';
 
