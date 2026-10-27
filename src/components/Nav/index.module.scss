@@ -111,8 +111,8 @@
 
 .link {
   position: relative;
-  text-box: trim-both cap alphabetic;
   display: inline-block;
+  text-box: trim-both cap alphabetic;
 
   @include mixin.hover {
     &::after {

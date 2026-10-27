@@ -1,6 +1,10 @@
 /** @type {import('stylelint').Config} */
-export default {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-recess-order'],
+const config = {
+  extends: [
+    'stylelint-config-standard-scss',
+    'stylelint-config-recess-order',
+    'stylelint-config-prettier-scss',
+  ],
   ignoreFiles: ['**/node_modules/**'],
   rules: {
     'block-no-empty': true,
@@ -11,3 +15,5 @@ export default {
     'scss/at-mixin-pattern': '^[a-z][a-zA-Z0-9]*$',
   },
 };
+
+export default config;
