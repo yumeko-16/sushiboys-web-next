@@ -37,6 +37,6 @@
 
 .heading::after {
   font-size: var(--body);
-  content: attr(data-ja);
   text-box: trim-both text;
+  content: attr(data-ja);
 }
