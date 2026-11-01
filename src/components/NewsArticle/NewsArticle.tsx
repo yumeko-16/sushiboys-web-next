@@ -1,13 +1,9 @@
 import Image from 'next/image';
 import type { News } from '@/libs/microcms';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Sheet from '@/components/Sheet';
-import PostHeader from '@/components/PostHeader';
-import PostBody from '@/components/PostBody';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Sheet from '@/components/Sheet/Sheet';
+import PostHeader from '@/components/PostHeader/PostHeader';
+import PostBody from '@/components/PostBody/PostBody';
 import ConvertBody from '@/components/ConvertBody/ConvertBody';
 import ButtonLink from '@/components/ButtonLink/ButtonLink';
 import Contact from '@/components/Contact/Contact';
@@ -21,7 +17,7 @@ export default function NewsArticle({ data }: Props) {
   return (
     <article>
       <TwoColumn>
-        <TwoColumnMain>
+        <TwoColumn.Main>
           <Sheet>
             <PostHeader
               title={data.title}
@@ -50,11 +46,11 @@ export default function NewsArticle({ data }: Props) {
           <div>
             <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
           </div>
-        </TwoColumnMain>
+        </TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </article>
   );
