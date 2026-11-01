@@ -1,14 +1,10 @@
 import type { Metadata } from 'next';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Sheet from '@/components/Sheet';
-import PictureList from '@/components/PictureList';
-import Contact from '@/components/Contact';
+import Container from '@/components/Container/Container';
+import Hero from '@/components/Hero/Hero';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Sheet from '@/components/Sheet/Sheet';
+import PictureList from '@/components/PictureList/PictureList';
+import Contact from '@/components/Contact/Contact';
 
 export const metadata: Metadata = {
   title: 'Picture',
@@ -28,15 +24,15 @@ export default function Page() {
       <Hero heading="Picture" subHeading="視覚資料" />
 
       <TwoColumn>
-        <TwoColumnMain>
+        <TwoColumn.Main>
           <Sheet>
             <PictureList />
           </Sheet>
-        </TwoColumnMain>
+        </TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>
   );

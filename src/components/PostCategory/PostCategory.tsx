@@ -1,0 +1,10 @@
+import type { Category } from '@/libs/microcms';
+import styles from './PostCategory.module.scss';
+
+type Props = {
+  category: Category;
+};
+
+export default function PostCategory({ category }: Props) {
+  return <span className={styles.tag}>{category.name}</span>;
+}

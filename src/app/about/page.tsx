@@ -1,15 +1,11 @@
 import type { Metadata } from 'next';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import PostBody from '@/components/PostBody';
-import Sheet from '@/components/Sheet';
-import Members from '@/components/Members';
-import Contact from '@/components/Contact';
+import Container from '@/components/Container/Container';
+import Hero from '@/components/Hero/Hero';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import PostBody from '@/components/PostBody/PostBody';
+import Sheet from '@/components/Sheet/Sheet';
+import Members from '@/components/Members/Members';
+import Contact from '@/components/Contact/Contact';
 
 export const metadata: Metadata = {
   title: 'About',
@@ -21,49 +17,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/about',
   },
-};
-
-const DATA = {
-  contents: [
-    {
-      id: '1',
-      image: {
-        url: '/member_farmhouse.jpg',
-        alt: '',
-        width: 480,
-        height: 480,
-      },
-      name: 'FARMHOUSE',
-      position: '俺がCEOだ 舐めるな',
-      profile: 'いつも自分の腹をさすさすしている。ソックスは膝上まで上げる派。',
-    },
-    {
-      id: '2',
-      image: {
-        url: '/member_santena.jpg',
-        alt: '',
-        width: 480,
-        height: 480,
-      },
-      name: 'サンテナ',
-      position: 'ザ・コクピット',
-      profile:
-        '脳筋。三國無双でいうところの魏延。五丈原の戦いに出てくるCPUの魏延の強さは異常。',
-    },
-    {
-      id: '5',
-      image: {
-        url: '/member_neo-yoshikawa.jpg',
-        alt: '',
-        width: 480,
-        height: 480,
-      },
-      name: 'neo yoshikawa',
-      position: '電話交換手',
-      profile:
-        '小説の中だと頻繁に惨殺されるし、ゲームのデータ消されがち。つけ麺に厳しい。',
-    },
-  ],
 };
 
 export default function Page() {
@@ -87,15 +40,15 @@ export default function Page() {
       </PostBody>
 
       <TwoColumn>
-        <TwoColumnMain>
+        <TwoColumn.Main>
           <Sheet>
-            <Members contents={DATA.contents} />
+            <Members />
           </Sheet>
-        </TwoColumnMain>
+        </TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>
   );

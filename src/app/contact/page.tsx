@@ -1,15 +1,11 @@
 import type { Metadata } from 'next';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import PostBody from '@/components/PostBody';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Sheet from '@/components/Sheet';
-import ContactForm from '@/components/ContactForm';
-import Contact from '@/components/Contact';
+import Container from '@/components/Container/Container';
+import Hero from '@/components/Hero/Hero';
+import PostBody from '@/components/PostBody/PostBody';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Sheet from '@/components/Sheet/Sheet';
+import ContactForm from '@/components/ContactForm/ContactForm';
+import Contact from '@/components/Contact/Contact';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -37,15 +33,15 @@ export default function Page() {
       </PostBody>
 
       <TwoColumn>
-        <TwoColumnMain>
+        <TwoColumn.Main>
           <Sheet>
             <ContactForm />
           </Sheet>
-        </TwoColumnMain>
+        </TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>
   );

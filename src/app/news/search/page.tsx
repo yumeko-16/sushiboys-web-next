@@ -1,17 +1,13 @@
 import type { Metadata } from 'next';
-import Hero from '@/components/Hero';
-import Container from '@/components/Container';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Sheet from '@/components/Sheet';
-import NewsList from '@/components/NewsList';
-import SearchField from '@/components/SearchField';
-import Contact from '@/components/Contact';
 import { getNewsList } from '@/libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/constants';
+import Hero from '@/components/Hero/Hero';
+import Container from '@/components/Container/Container';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Sheet from '@/components/Sheet/Sheet';
+import NewsList from '@/components/NewsList/NewsList';
+import SearchField from '@/components/SearchField/SearchField';
+import Contact from '@/components/Contact/Contact';
 
 type Props = {
   searchParams: Promise<{
@@ -46,17 +42,17 @@ export default async function Page({ searchParams }: Props) {
 
       <Container>
         <TwoColumn>
-          <TwoColumnMain>
+          <TwoColumn.Main>
             <Sheet>
               <SearchField />
 
               <NewsList news={news} />
             </Sheet>
-          </TwoColumnMain>
+          </TwoColumn.Main>
 
-          <TwoColumnSidebar>
+          <TwoColumn.Sidebar>
             <Contact />
-          </TwoColumnSidebar>
+          </TwoColumn.Sidebar>
         </TwoColumn>
       </Container>
     </>

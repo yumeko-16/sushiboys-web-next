@@ -1,0 +1,38 @@
+@use '@/styles/mixin';
+
+.member {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.member:not(:first-of-type) {
+  margin-top: 80px;
+}
+
+.member:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.image {
+  width: 240px;
+  border-radius: var(--border-radius);
+}
+
+.image img {
+  @include mixin.img;
+}
+
+.name {
+  font-size: var(--heading3);
+  font-weight: 700;
+}
+
+.position {
+  margin-top: 8px;
+}
+
+.profile {
+  margin-top: 8px;
+  font-size: calc(var(--body) * 0.75);
+}

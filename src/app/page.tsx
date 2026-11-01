@@ -1,9 +1,9 @@
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import NewsList from '@/components/NewsList';
-import ButtonLink from '@/components/ButtonLink';
-import { getNewsList } from '@/libs/microcms';
 import { TOP_NEWS_LIMIT } from '@/constants';
+import { getNewsList } from '@/libs/microcms';
+import Hero from '@/components/Hero/Hero';
+import Container from '@/components/Container/Container';
+import NewsList from '@/components/NewsList/NewsList';
+import ButtonLink from '@/components/ButtonLink/ButtonLink';
 import styles from './page.module.scss';
 
 export const revalidate = 60;
@@ -19,9 +19,7 @@ export default async function Page() {
 
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
-
         <NewsList news={data.contents} />
-
         <div className={styles.newsLink}>
           <ButtonLink href="/news">もっとみる</ButtonLink>
         </div>

@@ -1,0 +1,20 @@
+@use '@/styles/mixin';
+
+.wrapper {
+  padding: var(--space-xl) 0;
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.flexContainer {
+  @include mixin.sideBySideCenter;
+
+  gap: 2em;
+}
+
+.copyright {
+  margin-top: var(--space-sm);
+  font-size: calc(var(--body) * 0.75);
+  text-box: trim-both cap alphabetic;
+  text-align: center;
+}

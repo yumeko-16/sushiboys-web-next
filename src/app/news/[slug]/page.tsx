@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Container from '@/components/Container';
-import NewsArticle from '@/components/NewsArticle';
 import { getNewsDetail } from '@/libs/microcms';
+import Container from '@/components/Container/Container';
+import NewsArticle from '@/components/NewsArticle/NewsArticle';
 
 type Props = {
   params: Promise<{

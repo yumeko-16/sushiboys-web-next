@@ -1,0 +1,21 @@
+@use '@/styles/mixin';
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  color: var(--white);
+  background:
+    url('/images/arrow-right.svg') no-repeat right 20px center,
+    var(--black);
+  border-radius: var(--border-radius);
+
+  @include mixin.tabletScreen {
+    width: 300px;
+    padding: 20px 40px;
+  }
+
+  @include mixin.hover {
+    opacity: 0.9;
+  }
+}
