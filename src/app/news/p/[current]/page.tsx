@@ -1,18 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Sheet from '@/components/Sheet';
-import NewsList from '@/components/NewsList';
-import Pagination from '@/components/Pagination';
-import Contact from '@/components/Contact';
 import { getNewsList } from '@/libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/constants';
+import Container from '@/components/Container/Container';
+import Hero from '@/components/Hero/Hero';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Sheet from '@/components/Sheet/Sheet';
+import NewsList from '@/components/NewsList/NewsList';
+import Pagination from '@/components/Pagination/Pagination';
+import Contact from '@/components/Contact/Contact';
 
 type Props = {
   params: Promise<{
@@ -56,17 +52,17 @@ export default async function Page({ params }: Props) {
       <Hero heading="News" subHeading="戦況報告" />
 
       <TwoColumn>
-        <TwoColumnMain>
+        <TwoColumn.Main>
           <Sheet>
             <NewsList news={news} />
           </Sheet>
 
           <Pagination totalCount={totalCount} current={parsed} />
-        </TwoColumnMain>
+        </TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>
   );

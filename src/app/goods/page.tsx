@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
-import Container from '@/components/Container';
-import Hero from '@/components/Hero';
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from '@/components/TwoColumn';
-import Contact from '@/components/Contact';
+import Container from '@/components/Container/Container';
+import Hero from '@/components/Hero/Hero';
+import TwoColumn from '@/components/TwoColumn/TwoColumn';
+import Contact from '@/components/Contact/Contact';
 
 export const metadata: Metadata = {
   title: 'Goods',
@@ -28,11 +24,11 @@ export default function Page() {
       <Hero heading="Goods" subHeading="物資" />
 
       <TwoColumn>
-        <TwoColumnMain>ダミー</TwoColumnMain>
+        <TwoColumn.Main>ダミー</TwoColumn.Main>
 
-        <TwoColumnSidebar>
+        <TwoColumn.Sidebar>
           <Contact />
-        </TwoColumnSidebar>
+        </TwoColumn.Sidebar>
       </TwoColumn>
     </Container>
   );

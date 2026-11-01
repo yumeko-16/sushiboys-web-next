@@ -1,0 +1,42 @@
+@use '@/styles/mixin';
+
+.list {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.list:last-child {
+  border-bottom: none;
+}
+
+.link {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 24px 0;
+}
+
+.image {
+  display: none;
+
+  @include mixin.tabletScreen {
+    display: block;
+    width: 200px;
+    height: auto;
+    border-radius: var(--border-radius);
+  }
+}
+
+.title {
+  margin-bottom: 0.4rem;
+  font-weight: 700;
+
+  @include mixin.tabletScreen {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.meta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}

@@ -1,0 +1,146 @@
+@use '@/styles/mixin';
+
+.btn {
+  @include mixin.smartphoneScreen {
+    all: unset;
+    position: relative;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    outline: revert;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @include mixin.tabletScreen {
+    display: none;
+  }
+}
+
+.btn::before,
+.btn::after,
+.btn .bar {
+  @include mixin.smartphoneScreen {
+    display: block;
+    grid-area: 1 / 1;
+    width: 32px;
+    height: 2px;
+    content: '';
+    background-color: currentcolor;
+    transition: transform 0.4s;
+  }
+}
+
+.close {
+  .btn {
+    @include mixin.smartphoneScreen {
+      color: var(--black);
+    }
+  }
+
+  .btn::before {
+    @include mixin.smartphoneScreen {
+      transform: translateY(-8px);
+    }
+  }
+
+  .btn::after {
+    @include mixin.smartphoneScreen {
+      transform: translateY(8px);
+    }
+  }
+}
+
+.open {
+  .btn {
+    @include mixin.smartphoneScreen {
+      color: var(--white);
+    }
+  }
+
+  .btn::before {
+    @include mixin.smartphoneScreen {
+      transform: rotate(45deg);
+    }
+  }
+
+  .btn::after {
+    @include mixin.smartphoneScreen {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .btn .bar {
+    @include mixin.smartphoneScreen {
+      transform: scale(0);
+    }
+  }
+}
+
+.list {
+  font-size: calc(var(--body) * 0.875);
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include mixin.smartphoneScreen {
+    position: fixed;
+    inset: 0 -100% 0 100%;
+    z-index: 100;
+    display: grid;
+    gap: 40px;
+    place-content: center;
+    color: var(--white);
+    text-align: center;
+    background-color: rgb(0 0 0 / 80%);
+    transition: transform 0.4s;
+  }
+
+  @include mixin.tabletScreen {
+    display: flex;
+    gap: 2em;
+  }
+}
+
+.open {
+  .list {
+    @include mixin.smartphoneScreen {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  text-box: trim-both cap alphabetic;
+
+  @include mixin.hover {
+    &::after {
+      transform: scale(1, 1);
+    }
+  }
+
+  @include mixin.touch {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  &:active {
+    @include mixin.touch {
+      color: var(--black);
+    }
+  }
+}
+
+.link::after {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  content: '';
+  background: var(--black);
+  border-radius: 9999px;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
