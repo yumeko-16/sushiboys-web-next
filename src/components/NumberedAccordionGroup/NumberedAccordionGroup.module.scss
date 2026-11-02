@@ -1,0 +1,11 @@
+@use '@/styles/mixin';
+
+.list {
+  display: grid;
+  gap: 35px;
+  counter-reset: accordion;
+
+  @include mixin.tabletScreen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
