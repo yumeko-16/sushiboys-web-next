@@ -4,8 +4,8 @@ import styles from './AvatarAccordion.module.scss';
 
 type Props = {
   heading: string;
-  text: ReactNode[];
   avatar: 'male' | 'female';
+  children: ReactNode;
 };
 
 const AVATAR_IMAGES = {
@@ -13,21 +13,15 @@ const AVATAR_IMAGES = {
   female: '/images/avatar-female.svg',
 };
 
-export default function AvatarAccordion({ heading, text, avatar }: Props) {
+export default function AvatarAccordion({ heading, avatar, children }: Props) {
   return (
-    <details className={styles.wrapper}>
+    <details className={styles.addordion}>
       <summary className={styles.heading}>
-        <figure className={styles.avatar}>
-          <Image src={AVATAR_IMAGES[avatar]} alt="" width={145} height={145} />
-        </figure>
+        <Image src={AVATAR_IMAGES[avatar]} alt="" width={145} height={145} />
         {heading}
       </summary>
 
-      <div className={styles.text}>
-        {text.map((paragraph, index) => (
-          <p key={index}>{paragraph}</p>
-        ))}
-      </div>
+      <div className={styles.content}>{children}</div>
     </details>
   );
 }

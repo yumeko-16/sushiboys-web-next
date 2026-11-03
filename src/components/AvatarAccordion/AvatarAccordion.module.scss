@@ -1,13 +1,13 @@
 @use '@/styles/mixin';
 
-.wrapper {
+.accordion {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 0 6px 0 rgb(0 0 0 / 10%);
   interpolate-size: allow-keywords;
 }
 
-.wrapper::details-content {
+.accordion::details-content {
   height: 0;
   transition:
     height 0.3s ease,
@@ -15,18 +15,18 @@
     content-visibility 0.3s allow-discrete;
 }
 
-.wrapper[open]::details-content {
+.accordion[open]::details-content {
   height: auto;
 }
 
-.wrapper::-webkit-details-marker {
+.accordion::-webkit-details-marker {
   display: none;
 }
 
 .heading {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 50px 1fr;
   gap: 10px;
   align-items: center;
   padding: 15px 47px 15px 15px;
@@ -48,25 +48,19 @@
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.wrapper[open] .heading::after {
+.accordion[open] .heading::after {
   transform: translate(0, -50%) rotate(-90deg);
 }
 
-.avatar {
-  width: 50px;
-}
-
-.avatar img {
+.heading img {
   @include mixin.img;
-
-  width: 100%;
 }
 
-.text {
+.content {
   padding: 0 15px 15px;
   background-color: var(--white);
 }
 
-.text > * + * {
+.content > * + * {
   margin-top: 1em;
 }

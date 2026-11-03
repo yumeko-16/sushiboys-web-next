@@ -1,12 +1,12 @@
 @use '@/styles/mixin';
 
-.wrapper {
+.accordion {
   overflow: hidden;
   counter-increment: accordion;
   interpolate-size: allow-keywords;
 }
 
-.wrapper::details-content {
+.accordion::details-content {
   height: 0;
   transition:
     height 0.3s ease,
@@ -14,11 +14,11 @@
     content-visibility 0.3s allow-discrete;
 }
 
-.wrapper[open]::details-content {
+.accordion[open]::details-content {
   height: auto;
 }
 
-.wrapper::-webkit-details-marker {
+.accordion::-webkit-details-marker {
   display: none;
 }
 
@@ -54,14 +54,14 @@
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.wrapper[open] .heading::after {
+.accordion[open] .heading::after {
   transform: translate(0, -50%) rotate(-90deg);
 }
 
-.text {
+.content {
   padding: 10px;
 }
 
-.text > * + * {
+.content > * + * {
   margin-top: 1em;
 }
